@@ -1,1 +1,39 @@
-<h1>Tournament Index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h3>Party info</h3>
+    </div>
+    <div class="col-8">
+      <h3>Tournament</h3>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Title</th>
+            <th scope="col">Winner</th>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tournaments.each do |tour| %>
+            <tr>
+              <td><%= tour.dates.strftime('%Y-%m-%d') %></td>
+              <td>
+                <%= link_to(tournament_path(tour.id), class:"text-primary") do %>
+                <span><%= tour.name %></span>
+                <% end %>
+              </td>
+              <td>taro</td>
+              <td>
+                <%= link_to "Edit", edit_tournament_path(tour.id), class:"btn btn-outline-success" %>
+              <td>
+                <%= link_to "Delete", tournament_path(tour.id), class:"btn btn-outline-danger", method: :delete %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
