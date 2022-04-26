@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <div class="form-body p-4">
+        <h2>Profile</h2>
+        <hr>
+        <%= form_with model:@user, local:true do |f| %>
+          <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+
+          <div class="item_image_btn">
+            <%= f.attachment_field :profile_image, placeholder: "Profile image", id: "file" %>
+          </div>
+
+          <div class="btn btn-outline-success btn-lg btn-block btn-sm mt-2" id="img_field" onClick="$('#file').click()" >
+            Select Image
+          </div>
+
+          <div class="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-user"></i></span>
+            </div>
+            <%= f.text_field :name, class:"form-control", placeholder:"name" %>
+          </div>
+
+          <hr>
+          <%= f.submit "Save", class:"btn btn-success btn-lg btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
