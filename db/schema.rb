@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_24_045916) do
+ActiveRecord::Schema.define(version: 2022_04_26_042710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.date "dates"
+    t.integer "party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
