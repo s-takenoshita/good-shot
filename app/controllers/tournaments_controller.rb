@@ -13,8 +13,22 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def edit
+    @tournament = Tournament.find(params[:id])
+  end
+
+  def update
+    tournament = Tournament.find(params[:id])
+    tournament.update(tournament_params)
+    redirect_to tournament_path(tournament.id)
+  end
+
   def index
     @tournaments = Tournament.all
+  end
+
+  def show
+    @tournament = Tournament.find(params[:id])
   end
 
   private
