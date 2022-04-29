@@ -38,8 +38,13 @@
           </tbody>
         </table>
 
-        <div class="col-md-4 pl-0">
-          <%= link_to "Edit", edit_tournament_path(@tournament.id), class:"btn btn btn-success btn-lg btn-block" %>
+        <div class="row">
+          <div class="col-md-4 pl-0">
+            <%= link_to "編集", edit_tournament_path(@tournament.id), class:"btn btn btn-success btn-lg btn-block" %>
+          </div>
+          <div>
+            <%= link_to "削除", tournament_path(@tournament.id), class:"btn btn-outline-danger btn-lg", method: :delete %>
+          </div>
         </div>
       </div>
     </div>
