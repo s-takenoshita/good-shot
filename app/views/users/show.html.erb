@@ -7,7 +7,7 @@
         <hr>
         <div class="text-secondary">
           <div class="mb-2">
-            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "user-info-image" %>
           </div>
           <h3><span><i class="fa-solid fa-user"></i> : <%= @user.name %></span></h3>
           <h3><span><i class="fa-solid fa-envelope"></i> : <%= @user.email %></span></h3>
