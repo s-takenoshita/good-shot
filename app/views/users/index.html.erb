@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h3>選手</h3>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">名前</th>
+        <th scope="col">email</th>
+        <th scope="col">優勝回数</th>
+        <th scope="col">Best</th>
+        <th scope="col">Average</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to(user_path(user.id), class: 'text-primary') do %>
+              <%= attachment_image_tag user, :profile_image, :fill, 64, 64, format: 'jpeg', fallback: "no_image.jpg", class: "user-info-image" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to(user_path(user.id), class: 'text-primary') do %>
+              <%= user.name %>
+            <% end %>
+          </td>
+          <td><%= user.email %></td>
+          <td>2</td>
+          <td>82</td>
+          <td>87</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
