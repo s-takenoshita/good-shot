@@ -1,4 +1,4 @@
-class PartysController < ApplicationController
+class PartiesController < ApplicationController
   def new
     @party = Party.new
   end
@@ -6,7 +6,7 @@ class PartysController < ApplicationController
   def create
     @party = Party.new(party_params)
     if @party.save
-      redirect_to partys_path
+      redirect_to tournaments_path
     else
       render :new
     end
@@ -23,7 +23,7 @@ class PartysController < ApplicationController
   end
 
   def index
-    @partys = Party.all
+    @parties = Party.all
   end
 
   def show
@@ -39,6 +39,6 @@ class PartysController < ApplicationController
   private
 
   def party_params
-    params.require(:party).permit(:name, :activity_area,description, party_image_id)
+    params.require(:party).permit(:name, :activity_area, :description)
   end
 end
