@@ -1,9 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-2">
+    <div class="col-4">
       <h3>Party info</h3>
+      <%= attachment_image_tag current_user.party_id, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>name</td>
+            <% if current_user.party_id.nil? %>
+              <td>nil</td>
+            <% else %>
+              <td><%= current_user.party.name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>introduction</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <%= link_to(edit_user_path(current_user.id), class: 'btn btn-lg btn-block btn-outline-dark') do %>
+            <i class="fa-solid fa-user"></i> Profile
+        <% end %>
+      </div>
     </div>
-    <div class="col-10">
+    <div class="col-8">
       <h3>Tournament</h3>
       <table class="table">
         <thead class="thead-light">

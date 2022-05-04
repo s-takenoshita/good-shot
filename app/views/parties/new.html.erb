@@ -3,16 +3,16 @@
     <div class="col-md-8 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <div class="form-body p-4">
         <h2>活動グループ</h2>
-
-        
+        <hr>
         <%= form_with model: Party.new, local:true do |t| %>
-          <div class="input-group mb-3 mt-4">
+          <%= t.label :name, "名称" %><br />
+          <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-book"></i></span>
             </div>
             <%= t.text_field :name, class:"form-control", placeholder:"name" %>
           </div>
-          <h6>概要</h6>
+          <%= t.label :description, "活動概要" %><br />
           <%= t.text_area :description, class:"form-control" %>
           <hr>
           <%= t.submit '登録', class:"btn btn-lg btn-block btn-info mt-4" %>
