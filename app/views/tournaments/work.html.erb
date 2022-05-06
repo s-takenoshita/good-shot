@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h3>Party info</h3>
+      <% attachment_image_tag current_user.party_id, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>name</td>
+            <% if current_user.party_id.nil? %>
+              <td>nil</td>
+            <% else %>
+              <td><%= current_user.party.name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>introduction</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <%= link_to(edit_user_path(current_user.id), class: 'btn btn-lg btn-block btn-outline-dark') do %>
+            <i class="fa-solid fa-user"></i> Profile
+        <% end %>
+      </div>
+    </div>
+    <div class="col-8">
+      <h3>Tournament</h3>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Title</th>
+            <th scope="col">Winner</th>
+            <th scope="col">天気</th>
+            <th scope="col">コース</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tournaments.each do |tour| %>
+            <tr>
+              <td><%= tour.dates.strftime('%Y-%m-%d') %></td>
+              <td>
+                <%= link_to(tournament_path(tour.id), class:"text-primary") do %>
+                <span><%= tour.name %></span>
+                <% end %>
+              </td>
+              <td>竹之下　伸一</td>
+              <td>
+                晴れ
+              <td>
+                ザ・クイーンズヒルゴルフクラブ
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
