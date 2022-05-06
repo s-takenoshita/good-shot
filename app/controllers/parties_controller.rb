@@ -6,6 +6,8 @@ class PartiesController < ApplicationController
   def create
     @party = Party.new(party_params)
     if @party.save
+      puts "--------> @party.save"
+      set_party_id(@party.id)
       redirect_to tournaments_path
     else
       render :new
@@ -40,5 +42,12 @@ class PartiesController < ApplicationController
 
   def party_params
     params.require(:party).permit(:name, :activity_area, :description)
+  end
+
+  def set_party_id(party_id)
+    puts "--------> set_party_id(party_id)"
+    user = User.find(current_user.id)
+    user.party_id = party_id
+    user.save
   end
 end
