@@ -30,7 +30,13 @@
           <td>2</td>
           <td>82</td>
           <td>87</td>
-          <td><%= user.party_id %></td>
+          <td>
+            <% if !user.party_id.nil? %>
+              <%= link_to(party_path(user.party_id), class:"text-primary") do %>
+                <%= user.party.name %>
+              <% end %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -1,11 +1,13 @@
 class TournamentsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @tournament = Tournament.new
   end
 
   def create
     @tournament = Tournament.new(tournament_params)
-    # @tournament.party_id = current_user.id
+    @tournament.party_id = current_user.party_id
     if @tournament.save
       redirect_to tournaments_path
     else
@@ -24,7 +26,10 @@ class TournamentsController < ApplicationController
   end
 
   def index
-    @tournaments = Tournament.all
+    id = current_user.party_id
+    puts "current_user.party_id -->" + id.to_s
+    @tournaments = Tournament.where(party_id: current_user.party_id)
+    # @tournaments = Tournament.all
   end
 
   def show

@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-4">
+    <div class="col-4 pl-5">
       <h3>Party info</h3>
       <% attachment_image_tag current_user.party, :party_image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
       <% if current_user.party_id.nil? %>
@@ -45,7 +45,7 @@
         </div>
       <% end %>
     </div>
-    <div class="col-8">
+    <div class="col-8 pr-5">
       <h3>Tournament</h3>
       <table class="table">
         <thead class="thead-light">

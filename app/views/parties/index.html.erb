@@ -5,6 +5,7 @@
     <thead class="thead-light">
       <tr>
         <th scope="col"></th>
+        <th scope="col">ID</th>
         <th scope="col">名前</th>
         <th scope="col">活動地域</th>
         <th scope="col">概要</th>
@@ -19,6 +20,7 @@
               <%= attachment_image_tag party, :party_image_id, :fill, 64, 64, format: 'jpeg', fallback: "no_image.jpg", class: "user-info-image" %>
             <% end %>
           </td>
+          <td><%= party.id %></td>
           <td>
             <%= link_to(party_path(party.id), class: 'text-primary') do %>
               <%= party.name %>
